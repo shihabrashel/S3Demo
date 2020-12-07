@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S3Demo.Web", "S3Demo.Web\S3Demo.Web.csproj", "{F8B40CFC-F20D-415A-8D9E-9B89A2F3228C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S3Demo.Api", "S3Demo.Api\S3Demo.Api.csproj", "{18B4891B-B5C4-461D-A8B2-561AFB3B75E9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S3Demo.Service", "S3Demo.Service\S3Demo.Service.csproj", "{C68065EB-7A53-4A21-B14D-0EB8435772CB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S3Demo.Model", "S3Demo.Model\S3Demo.Model.csproj", "{7EBFE8E3-25CA-4E42-A8D3-F5C382D8631D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S3Demo.Web", "S3Demo.Web\S3Demo.Web.csproj", "{75D4BFD6-6993-422B-9819-3D12A847ECBE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F8B40CFC-F20D-415A-8D9E-9B89A2F3228C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F8B40CFC-F20D-415A-8D9E-9B89A2F3228C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F8B40CFC-F20D-415A-8D9E-9B89A2F3228C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F8B40CFC-F20D-415A-8D9E-9B89A2F3228C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{18B4891B-B5C4-461D-A8B2-561AFB3B75E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{18B4891B-B5C4-461D-A8B2-561AFB3B75E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18B4891B-B5C4-461D-A8B2-561AFB3B75E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{7EBFE8E3-25CA-4E42-A8D3-F5C382D8631D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EBFE8E3-25CA-4E42-A8D3-F5C382D8631D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EBFE8E3-25CA-4E42-A8D3-F5C382D8631D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75D4BFD6-6993-422B-9819-3D12A847ECBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75D4BFD6-6993-422B-9819-3D12A847ECBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75D4BFD6-6993-422B-9819-3D12A847ECBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75D4BFD6-6993-422B-9819-3D12A847ECBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
