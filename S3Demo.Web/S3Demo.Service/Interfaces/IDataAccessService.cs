@@ -7,6 +7,9 @@ namespace S3Demo.Service.Interfaces
 {
     public partial interface IDataAccessService
     {
-        List<Reading> GetReadings(int buildingId, int objectId, int dataFieldId);
+        List<Reading> GetReadingData(int buildingId, int objectId, int dataFieldId, DateTime startDate, DateTime endDate);
+        List<Building> GetBuildings();
+        List<Model.Object> GetObjects();
+        List<DataField> GetDataFields();
     }
 }

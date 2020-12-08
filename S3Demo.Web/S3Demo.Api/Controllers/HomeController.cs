@@ -11,7 +11,7 @@ namespace S3Demo.Api.Controllers
 {
     [ApiController]
     [Route("api/v{version:apiVersion}/home")]
-    public class HomeController : ControllerBase
+    public partial class HomeController : ControllerBase
     {
 
         private readonly IDataAccessService _dataAccessService;
@@ -20,26 +20,37 @@ namespace S3Demo.Api.Controllers
         {
             _dataAccessService = dataAccessService;
         }
-        [HttpGet("{buildingId}/{objectId}/{dataFieldId}")]
-        public ActionResult< IEnumerable<Reading>> Get(int buildingId,int objectId,int dataFieldId)
+        [HttpGet("{buildingId}/{objectId}/{dataFieldId}/{startDate}/{endDate}")]
+        public virtual ActionResult< IEnumerable<Reading>> Get(int buildingId,int objectId,int dataFieldId,DateTime startDate,DateTime endDate)
         {
-            var data = _dataAccessService.GetReadings(buildingId, objectId, dataFieldId);
+            var data = _dataAccessService.GetReadingData(buildingId, objectId, dataFieldId, startDate, endDate);
             if (data != null)
                 return Ok(data);
             return NotFound();
         }
-
-        //[HttpGet]
-        //public IEnumerable<WeatherForecast> Get()
-        //{
-        //    var rng = new Random();
-        //    return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-        //    {
-        //        Date = DateTime.Now.AddDays(index),
-        //        TemperatureC = rng.Next(-20, 55),
-        //        Summary = Summaries[rng.Next(Summaries.Length)]
-        //    })
-        //    .ToArray();
-        //}
+        [HttpGet("buildings")]
+        public virtual ActionResult<IEnumerable<Building>> GetBuildings()
+        {
+            var data = _dataAccessService.GetBuildings();
+            if (data != null)
+                return Ok(data);
+            return NotFound();
+        }
+        [HttpGet("objects")]
+        public virtual ActionResult<IEnumerable<Building>> GetObjects()
+        {
+            var data = _dataAccessService.GetObjects();
+            if (data != null)
+                return Ok(data);
+            return NotFound();
+        }
+        [HttpGet("datafields")]
+        public virtual ActionResult<IEnumerable<Building>> GetDataFields()
+        {
+            var data = _dataAccessService.GetDataFields();
+            if (data != null)
+                return Ok(data);
+            return NotFound();
+        }
     }
 }

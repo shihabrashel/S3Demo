@@ -24,15 +24,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\models\reading.ts" />
+    <None Remove="ClientApp\src\app\models\s3-int-filter.ts" />
     <None Remove="ClientApp\src\app\services\home-service.ts" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ClientApp\src\app\models\" />
     <Folder Include="ClientApp\src\vendor\" />
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\models\reading.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\s3-int-filter.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\home-service.ts" />
   </ItemGroup>
 

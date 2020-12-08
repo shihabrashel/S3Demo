@@ -9,13 +9,20 @@ export class HomeService {
   constructor(private http: HttpClient) {
 
   }
-  getReadingData(buildingId, objectId, dataFieldId) {
+  getReadingData(buildingId: number, objectId: number, dataFieldId: number, startDate: string, endDate: string) {
     return this.http.get(environment.apiEndPoint +
-      "home/" +
-      buildingId +
-      "/" +
-      objectId +
-      "/" +
-      dataFieldId);
+      "home/" + buildingId + "/" + objectId +"/" +dataFieldId + "/" + startDate + "/" +endDate);
+  }
+  getBuildings() {
+    return this.http.get(environment.apiEndPoint +
+      "home/buildings");
+  }
+  getObjects() {
+    return this.http.get(environment.apiEndPoint +
+      "home/objects");
+  }
+  getDataFields() {
+    return this.http.get(environment.apiEndPoint +
+      "home/datafields");
   }
 }
