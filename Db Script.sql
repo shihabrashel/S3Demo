@@ -36,19 +36,25 @@ Go
 Create procedure GetBuildingData
 As
 Begin
+	Set NOCOUNT ON
 	Select Id,[Name] from dbo.Building
+	Set NOCOUNT OFF
 End
 Go
 Create procedure GetObjectData
 As
 Begin
+	Set NOCOUNT ON
 	Select Id,[Name] from dbo.[Object]
+	Set NOCOUNT OFF
 End
 Go
 Create procedure GetDataFields
 As
 Begin
+	Set NOCOUNT ON
 	Select Id,[Name] from dbo.DataField
+	Set NOCOUNT OFF
 End
 Go
 Alter procedure GetReadingData 
@@ -62,11 +68,13 @@ Alter procedure GetReadingData
 As
 --exec GetReadingData 1,11,3,'2020-12-08','2020-12-09'
 Begin
+	Set NOCOUNT ON
 	Select [Value],FORMAT([Timestamp],'hh') as [Timestamp] from dbo.Reading
 	where BuildingId=@buildingId
 	and ObjectId=@objectId
 	and @dataFieldId=@dataFieldId
 	and Timestamp between @startDate and @endDate
+	Set NOCOUNT OFF
 End
 Go
 Insert into dbo.Building values('Test','Test')
@@ -79,6 +87,7 @@ Go
 Alter procedure LoadBuildingData
 As
 Begin
+	Set NOCOUNT ON
 	Declare @Id int
 	Set @Id = 1
 
@@ -87,6 +96,7 @@ Begin
 		 Insert into dbo.Building values('Building - ' + CAST(@Id as nvarchar(20)),'Building - ' + CAST(@Id as nvarchar(20))+' - Location') 
 		 Set @Id = @Id + 1
 	End
+	Set NOCOUNT OFF
 End
 
 Select * from Building
@@ -94,6 +104,7 @@ Select * from Building
 Alter procedure LoadObjectData
 As
 Begin
+	Set NOCOUNT ON
 	Declare @Id int
 	Set @Id = 1
 
@@ -102,6 +113,7 @@ Begin
 		 Insert into dbo.[Object] values('Object - ' + CAST(@Id as nvarchar(20)))
 		 Set @Id = @Id + 1
 	End
+	Set NOCOUNT OF
 End
 
 Select * from [Object]
@@ -109,6 +121,7 @@ Select * from [Object]
 Alter procedure LoadDataFieldData
 As
 Begin
+	Set NOCOUNT ON
 	Declare @Id int
 	Set @Id = 1
 
@@ -117,6 +130,7 @@ Begin
 		 Insert into dbo.DataField values('Data Field - ' + CAST(@Id as nvarchar(20)))
 		 Set @Id = @Id + 1
 	End
+	Set NOCOUNT OFF
 End
 
 Select * from dbo.DataField
@@ -126,6 +140,7 @@ truncate table Reading
 Alter procedure LoadReadingData
 As
 Begin
+	Set NOCOUNT ON
 	declare @minBuildingId int=(Select MIN(Id) from dbo.Building)
 	declare @maxBuildingId int=(Select Max(Id) from dbo.Building)
 
@@ -167,4 +182,5 @@ Begin
 		set @maxBuildingId=@maxBuildingId-1;
 		print(@maxBuildingId)
 	End
+	Set NOCOUNT OFF
 End
