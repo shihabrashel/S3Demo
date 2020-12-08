@@ -1,0 +1,59 @@
+--Create table Building(
+--Id smallint primary key Identity(1,1),
+--Name varchar(50) not null,
+--Location varchar(50)
+--)
+--Create table [Object](
+--Id tinyint primary key Identity(1,1),
+--Name varchar(50) not null
+--)
+--Create table DataField(
+--Id tinyint primary key Identity(1,1),
+--Name varchar(50) not null
+--)
+--Create table Reading(
+--BuildingId smallint not null foreign key REFERENCES Building(Id),
+--ObjectId tinyint not null foreign key REFERENCES [Object](Id),
+--DataFieldId tinyint not null foreign key REFERENCES DataField(Id),
+--[Value] Decimal(18,2) not null,
+--[Timestamp] datetime not null
+--)
+
+--Create procedure GetBuildingData
+--As
+--Begin
+--	Select Id,[Name] from dbo.Building
+--End
+
+--Create procedure GetObjectData
+--As
+--Begin
+--	Select Id,[Name] from dbo.[Object]
+--End
+
+--Create procedure GetDataFields
+--As
+--Begin
+--	Select Id,[Name] from dbo.DataField
+--End
+
+--Create procedure GetReadingData
+--(
+--	@buildingId smallint,
+--	@objectId tinyint,
+--	@dataFieldId tinyint,
+--	@startDate datetime,
+--	@endDate datetime
+--)
+--As
+--Begin
+--	Select [Value],[Timestamp] from dbo.Reading
+--	where BuildingId=@buildingId
+--	and ObjectId=@objectId
+--	and @dataFieldId=@dataFieldId
+--	and Timestamp between @startDate and @endDate
+--End
+
+--Insert into dbo.Building values('Test','Test')
+--Insert into dbo.[Object] values('Test')
+--Insert into dbo.DataField values('Test')
